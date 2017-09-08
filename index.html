@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>无限轮播</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            width: 500px;
+            height: 300px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+        .red,.green,.blue{
+            width: 500px;
+            height: 300px;
+            float: left;
+        }
+        .red{
+            background-color: red;
+        }
+        .green{
+            background-color: green;
+        }
+        .blue{
+            background-color: blue;
+        }
+        /*画廊*/
+        .wra{
+            width: 1500px;
+            height: 300px;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <div class="wra">
+        <div class="red"></div>
+        <div class="green"></div>
+        <div class="blue"></div>
+    </div>
+</div>
+<button class="btn">下一张</button>
+<script src="js/jquery-3.2.1.min.js"></script>
+<script>
+    $(function(){
+        $(".btn").click(function(){
+            $(".wra").animate({
+                left:-500
+            },function () {
+                $(".wra").children().first().appendTo(".wra");
+                $(".wra").animate({
+                    left:0
+                },0)
+            })
+        });
+    });
+</script>
+</body>
+</html>
